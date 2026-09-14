@@ -1,4 +1,4 @@
-obBoard — intégration HTML/CSS complète depuis Stitch
+JobBoard — intégration HTML/CSS complète depuis Stitch
 
 Ce projet reprend toutes les maquettes du fichier Stitch fourni avec un CSS volontairement simple, lisible et facile à expliquer.
 
