@@ -30,3 +30,15 @@ export function applyFilters(offers, state) {
     return matchesContract && matchesCity && matchesTech && matchesSearch;
   });
 }
+export function applySort(offers, sortBy) {
+  const sorted = [...offers];
+
+  switch (sortBy) {
+    case "recent":
+      return sorted.sort((a, b) => new Date(b.datePublication) - new Date(a.datePublication));
+    case "oldest":
+      return sorted.sort((a, b) => new Date(a.datePublication) - new Date(b.datePublication));
+    default:
+      return sorted;
+  }
+}
