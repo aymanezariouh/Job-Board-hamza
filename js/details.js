@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const detailContainer = document.querySelector("#offer-detail");
-const idParam=params.get("id")
+const idParam = params.get("id");
 const id = Number(idParam);
 // console.log(id)
 // console.log(typeof(id))
@@ -16,11 +16,11 @@ async function initDetail() {
     </div>
   </div>
 `;
-if(!idParam ||Number.isNaN(id)){
-    detailContainer.innerHTML=`
+  if (!idParam || Number.isNaN(id)) {
+    detailContainer.innerHTML = `
         <div class='empty-box'>
             <div class='empty-inner'>
-                <h2>Offer ivalide</h2>
+                <h2>Offer invalide</h2>
                 <p class='muted'>
                     Aucun identifiant d'offer valide n'a été fourni.
                 </p>
@@ -29,10 +29,31 @@ if(!idParam ||Number.isNaN(id)){
         </div>
     `;
     return;
-
-}
+  }
   try {
     const offer = await fetchOfferById(id);
+    let applicationButton;
+
+    if (offer.lienCandidature) {
+      applicationButton = `
+    <a
+      href="${offer.lienCandidature}"
+      target="_blank"
+      class="btn btn-primary"
+    >
+      Postuler →
+    </a>
+  `;
+    } else {
+      applicationButton = `
+    <a
+      href="mailto:${offer.emailContact}"
+      class="btn btn-primary"
+    >
+      Postuler par email →
+    </a>
+  `;
+    }
     detailContainer.innerHTML = `
     <section class="panel detail-card">
 
@@ -77,6 +98,11 @@ if(!idParam ||Number.isNaN(id)){
     <p>${offer.profilRecherche}</p>
 </div>
 
+<hr class="sep" />
+<div class='detail-section'>
+    <h2>Candidature</h2>
+    ${applicationButton}
+</div>
     </section>
   `;
   } catch (error) {
