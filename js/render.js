@@ -1,4 +1,4 @@
-function renderOffers(offers, container) {
+export function renderOffers(offers, container) {
   const resultsCount = document.querySelector("#results-count");
 
   resultsCount.textContent = `${offers.length} offres disponibles`;
@@ -80,7 +80,7 @@ function renderOffers(offers, container) {
   container.innerHTML = cards;
 }
 
-function renderLoading(container) {
+export function renderLoading(container) {
   container.innerHTML = `
      <div class="empty-box">
             <div class="empty-inner">
@@ -89,7 +89,7 @@ function renderLoading(container) {
         </div>
     `;
 }
-function renderError(container) {
+export function renderError(container) {
   container.innerHTML = `
      <div class="empty-box">
             <div class="empty-inner">

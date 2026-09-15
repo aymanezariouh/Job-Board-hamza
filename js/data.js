@@ -1,5 +1,5 @@
-async function fetchOffers() {
-  const response = await fetch("http://127.0.0.1:5500/data/offers.json");
+export async function fetchOffers() {
+  const response = await fetch('./data/offers.json');
   if (!response.ok) {
     throw new Error("Failed to fetch offers");
   }

@@ -81,45 +81,34 @@
 
           <form class="panel search-panel">
             <div class="search-row">
+              <!-- Search Input -->
               <input
+                id="search-input"
                 class="field"
                 type="search"
-                placeholder="⌕  Rechercher par poste, entreprise, mot-clé..."
+                placeholder="⌕ Rechercher par poste, entreprise, mot-clé..."
               />
 
-              <button class="btn btn-primary" type="button">
-                ☷ Rechercher
-              </button>
-            </div>
-
-            <div class="filter-row">
-              <!-- Ville -->
-
-              <select class="field">
-                <option>Toutes les villes</option>
+              <!-- Ville Select -->
+              <select id="filter-city" class="field">
+                <option value="all">Toutes les villes</option>
               </select>
 
-              <!-- Technologie -->
-
-              <select class="field">
-                <option>Toutes les technos</option>
+              <!-- Techno Select -->
+              <select id="filter-tech" class="field">
+                <option value="all">Toutes les technos</option>
               </select>
 
-              <!-- Type de contrat -->
+              <!-- Contrat Select -->
+              <select id="filter-contract" class="field">
+                <option value="all">Tous les contrats</option>
+              </select>
 
-              <div class="contract-sort-mobile">
-                <select class="field">
-                  <option>Tous les contrats</option>
-                </select>
-              </div>
-
-              <!-- Tri -->
-
-              <div class="contract-sort-mobile">
-                <select class="field">
-                  <option>Plus récentes</option>
-                </select>
-              </div>
+              <!-- Tri Select -->
+              <select id="sort-select" class="field">
+                <option value="recent">Plus récentes</option>
+                <option value="oldest">Plus anciennes</option>
+              </select>
 
               <!-- Reset -->
 
@@ -222,9 +211,6 @@
       </a>
     </nav>
 
-    <script src="./js/data.js"></script>
-    <script src="./js/render.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/details.js"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>
