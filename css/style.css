@@ -491,3 +491,7 @@ p { margin: 0 0 12px; }
   .edit-bottom-actions { flex-direction: column; }
   .edit-bottom-actions .btn { width: 100%; }
 }
+.badge-alternance {
+  background: var(--green-soft);
+  color: var(--green);
+}
